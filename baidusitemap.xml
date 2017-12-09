@@ -3,11 +3,61 @@
 
 
     
+  <url>
+    <loc>http://tinyxiong.com/linux_common_cmds/</loc>
+    <lastmod>2017-12-09T14:27:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令列表 - 速查手册</title>
+        <pubTime>2017-08-01T08:36:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>命令</tag>
+         
+        <tag>速查手册</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
+          
+             
+              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
+  <url>
+    <loc>http://tinyxiong.com/linux_ls/</loc>
+    <lastmod>2017-12-09T13:25:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令系列 - ls命令</title>
+        <pubTime>2017-08-20T08:36:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
+          
+             
+              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://tinyxiong.com/linux_cat/</loc>
-    <lastmod>2017-12-09T12:45:19.000Z</lastmod>
+    <lastmod>2017-12-09T13:19:45.000Z</lastmod>
     <data>
         <display>
         <title>Linux常用命令系列 - echo命令</title>
@@ -32,28 +82,5 @@
     </url>
 
     
-  <url>
-    <loc>http://tinyxiong.com/linux_ls/</loc>
-    <lastmod>2017-12-09T08:54:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux常用命令系列 - ls</title>
-        <pubTime>2017-08-20T08:36:36.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>命令</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
-          
-             
-              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
-          
-        </display>
-    </data>
-    </url>
-
+    
 </urlset>

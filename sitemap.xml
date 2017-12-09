@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tinyxiong.com/linux_common_cmds/</loc>
+    
+    <lastmod>2017-12-09T14:27:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tinyxiong.com/linux_ls/</loc>
+    
+    <lastmod>2017-12-09T13:25:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tinyxiong.com/linux_cat/</loc>
+    
+    <lastmod>2017-12-09T13:19:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tinyxiong.com/tags/index.html</loc>
     
     <lastmod>2017-12-09T13:13:50.000Z</lastmod>
@@ -12,20 +33,6 @@
     <loc>http://tinyxiong.com/categories/index.html</loc>
     
     <lastmod>2017-12-09T13:13:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tinyxiong.com/linux_cat/</loc>
-    
-    <lastmod>2017-12-09T12:45:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tinyxiong.com/linux_ls/</loc>
-    
-    <lastmod>2017-12-09T08:54:59.000Z</lastmod>
     
   </url>
   
