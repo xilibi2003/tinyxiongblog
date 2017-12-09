@@ -3,18 +3,20 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: Tiny熊谈技术
+subtitle: 
 description:
-author: John Doe
-language:
-timezone:
+author: Tiny熊
+language: zh-Hans
+timezone: Asia/Shanghai
+# Set default keywords (Use a comma to separate)
+keywords: ""
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://tinyxiong.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
@@ -72,9 +74,26 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
+
+menu:
+  home: / || home
+  深入浅出区块链: https://wiki.learnblockchain.cn || book
+  # about: /about/ || user
+  categories: /categories/ || th
+  archives: /archives/ || archive
+
+menu_icons:
+  enable: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@gitee.com:xilibi2003/TinyBlog.git
+  branch: master
+
+sitemap:
+  path: sitemap.xml
+  template: ./sitemap_template.xml
+
