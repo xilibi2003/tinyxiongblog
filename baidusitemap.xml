@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://tinyxiong.com/linux_cat/</loc>
+    <lastmod>2017-12-09T08:57:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令系列 - echo命令</title>
+        <pubTime>2017-08-26T08:36:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>命令</tag>
+         
+        <tag>echo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
+          
+             
+              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tinyxiong.com/linux_ls/</loc>
+    <lastmod>2017-12-09T08:54:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令系列 - ls</title>
+        <pubTime>2017-08-20T08:36:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
+          
+             
+              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
