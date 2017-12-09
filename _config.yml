@@ -5,12 +5,36 @@
 # Site
 title: Tiny熊谈技术
 subtitle: 
-description:
+description: 关注领域：区块链，linux，移动开发，Mac
 author: Tiny熊
 language: zh-Hans
 timezone: Asia/Shanghai
 # Set default keywords (Use a comma to separate)
-keywords: ""
+keywords: "linux使用技巧"
+
+
+social:
+  GitHub: https://github.com/xilibi2003 || github
+  Weibo: http://weibo.com/xilibi2003 || weibo
+  ZhiHu: https://www.zhihu.com/people/xiong-li-bing/activities
+  E-Mail: mailto:xilibi2003@gmail.com || envelope
+
+social_icons:
+  enable: true
+  
+  ZhiHu: zhihu
+  icons_only: false
+  transition: false
+
+links_icon: link
+links_title: 友情链接
+links_layout: block
+
+links:
+  我的小专栏: https://xiaozhuanlan.com/linuxskill
+  深入浅出区块链: https://learnblockchain.cn
+  
+
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -78,7 +102,7 @@ theme: next
 
 menu:
   home: / || home
-  深入浅出区块链: https://wiki.learnblockchain.cn || book
+  深入浅出区块链: https://learnblockchain.cn || book
   # about: /about/ || user
   categories: /categories/ || th
   archives: /archives/ || archive
@@ -90,7 +114,7 @@ menu_icons:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@gitee.com:xilibi2003/TinyBlog.git
+  repo: git@github.com:xilibi2003/tinyxiongblog.git
   branch: master
 
 sitemap:

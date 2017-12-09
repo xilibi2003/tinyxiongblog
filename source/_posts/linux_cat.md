@@ -40,7 +40,6 @@ Hello Bash
 
 \e[0m 表示将颜色重新置回
 
-
 如果要进行格式化打印可以使用printf， 如：
 ```bash
 $ printf "%-10s %-10s %-4.2f\n" Hello Bash 88.8888
@@ -50,5 +49,5 @@ Hello      Bash       88.89
 printf更多用户用法，有兴趣的可以[参考](https://www.computerhope.com/unix/uprintf.htm)。
 
 ## 使用截图：
-![屏幕快照 2016-11-29 下午9.47.40.png](/images/linux_cat.png)
+![](/images/linux_cat.png)
 
