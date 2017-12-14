@@ -4,26 +4,21 @@
 
     
   <url>
-    <loc>http://tinyxiong.com/linux_common_cmds/</loc>
-    <lastmod>2017-12-09T14:39:22.000Z</lastmod>
+    <loc>http://tinyxiong.com/about-effciency/</loc>
+    <lastmod>2017-12-14T14:55:33.000Z</lastmod>
     <data>
         <display>
-        <title>Linux常用命令列表 - 速查手册</title>
-        <pubTime>2017-08-01T08:36:36.000Z</pubTime>
+        <title>程序员提高工作效率的方法</title>
+        <pubTime>2017-12-14T13:10:47.000Z</pubTime>
         
-        <tag>Linux</tag>
+        <tag>心得</tag>
          
-        <tag>命令</tag>
-         
-        <tag>速查手册</tag>
+        <tag>工作效率</tag>
          
          
            
              
-              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
-          
-             
-              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+              <breadCrumb title="心得" url="http://tinyxiong.com/categories/%E5%BF%83%E5%BE%97/"/>
           
         </display>
     </data>
@@ -32,7 +27,7 @@
     
   <url>
     <loc>http://tinyxiong.com/linux_ls/</loc>
-    <lastmod>2017-12-09T13:25:25.000Z</lastmod>
+    <lastmod>2017-12-14T14:55:33.000Z</lastmod>
     <data>
         <display>
         <title>Linux常用命令系列 - ls命令</title>
@@ -57,7 +52,7 @@
     
   <url>
     <loc>http://tinyxiong.com/linux_cat/</loc>
-    <lastmod>2017-12-09T13:19:45.000Z</lastmod>
+    <lastmod>2017-12-14T13:09:26.000Z</lastmod>
     <data>
         <display>
         <title>Linux常用命令系列 - echo命令</title>
@@ -68,6 +63,33 @@
         <tag>命令</tag>
          
         <tag>echo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tinyxiong.com/categories/Linux/"/>
+          
+             
+              <breadCrumb title="命令" url="http://tinyxiong.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tinyxiong.com/linux_common_cmds/</loc>
+    <lastmod>2017-12-09T14:39:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令列表 - 速查手册</title>
+        <pubTime>2017-08-01T08:36:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>命令</tag>
+         
+        <tag>速查手册</tag>
          
          
            

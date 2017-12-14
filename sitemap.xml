@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tinyxiong.com/linux_common_cmds/</loc>
+    <loc>http://tinyxiong.com/about-effciency/</loc>
     
-    <lastmod>2017-12-09T14:39:22.000Z</lastmod>
+    <lastmod>2017-12-14T14:55:33.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://tinyxiong.com/linux_ls/</loc>
     
-    <lastmod>2017-12-09T13:25:25.000Z</lastmod>
+    <lastmod>2017-12-14T14:55:33.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://tinyxiong.com/linux_cat/</loc>
     
-    <lastmod>2017-12-09T13:19:45.000Z</lastmod>
+    <lastmod>2017-12-14T13:09:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tinyxiong.com/linux_common_cmds/</loc>
+    
+    <lastmod>2017-12-09T14:39:22.000Z</lastmod>
     
   </url>
   
