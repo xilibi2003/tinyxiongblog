@@ -51,3 +51,5 @@ printf更多用户用法，有兴趣的可以[参考](https://www.computerhope.c
 ## 使用截图：
 ![](/images/linux_cat.png)
 
+[原始链接](http://tinyxiong.com/linux_ls/):http://tinyxiong.com/ls/
+关于作者：Tiny熊：[深入浅出区块链](https://learnblockchain.cn)博主

@@ -1,5 +1,5 @@
 ---
-title: Linux常用命令系列 - ls
+title: Linux常用命令系列 - ls命令
 date: 2017-08-20 16:36:36
 categories: 
     - Linux
@@ -52,3 +52,5 @@ $ ls -S | head -5
 ## 用法截图
 ![](/images/linux_ls.png)
 
+[原始链接](http://tinyxiong.com/linux_ls/):http://tinyxiong.com/linux_ls/
+关于作者：Tiny熊：[深入浅出区块链](https://learnblockchain.cn)博主
