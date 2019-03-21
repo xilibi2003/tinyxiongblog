@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="linux使用技巧" />
+  <meta name="keywords" content="linux使用技巧,区块链,个人成长" />
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="关注领域：个人成长、思考、总结、区块链，Linux，移动开发，Mac">
-<meta name="keywords" content="linux使用技巧">
+<meta name="keywords" content="linux使用技巧,区块链,个人成长">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tiny熊-记录与思考">
 <meta property="og:url" content="http://tinyxiong.com/index.html">
@@ -249,6 +249,341 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tinyxiong.com/learn_uniswap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tiny熊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tiny熊-记录与思考">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/learn_uniswap/" itemprop="url">Uniswap 学习记录</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T22:59:27+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-21T23:16:39+08:00">
+                2019-03-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Uniswap 协议</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Uniswap 是一个以太坊上运行的去中心化交易所协议，能让 ETH 和 ERC20 代币之间的兑换变得非常简易。</p>
+<h2 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h2><p>Uniswap 用一个被称为“自动做市商”（AMM）的模型，根据可用的流动性自动调整兑换比率。</p>
+<p>Uniswap 使用了一个由 Vitalik 提出的“恒定乘积做市商”的模型，能让在合约中锁定的两种资产之间进行交易。</p>
+<p>“恒定乘积做市商”使用一个非常简单的公式 x*y=k，其中 x 是 ETH，y 是 ERC20 代币，k 是恒量。</p>
+<p>如果你将所有的 ETH 卖给 Uniswap 合约，仍还有很少量的 ERC20 代币可供购买。例如，如果有人向合约出售了1个 ETH，现在总共有11个 ETH。为了保持 k 恒定，就需要有 500/11 = 45.45 个 ERC20 代币。所以你要给发送 50 - 45.45 = 4.55 个 ERC20 代币给买家。</p>
+<p>成为流动性提供者时，同时存入 ETH 和 ERC20 代币，流动性提供者可以得到交易分成。</p>
+<h2 id="Uniswap和-Bancor-的区别"><a href="#Uniswap和-Bancor-的区别" class="headerlink" title="Uniswap和 Bancor 的区别"></a>Uniswap和 Bancor 的区别</h2><p>Uniswap和 Bancor 的区别：</p>
+<p><img src="/images/15526622474123.jpg" alt=""></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>目前 Uniswap 流动性池中有2万个ETH， Uniswap代币兑换是及时的。<br>Uniswap合约使用Vyper开发，所有内容只有创始人（Hayden）一个全职开发者。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://mp.weixin.qq.com/s/15UWTVRHVLU3DCyR48zh_w" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/15UWTVRHVLU3DCyR48zh_w</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tinyxiong.com/cosmos_tendermint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tiny熊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tiny熊-记录与思考">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/cosmos_tendermint/" itemprop="url">Cosmos & Tendermint</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T22:59:27+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-21T23:21:10+08:00">
+                2019-03-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Cosmos 和 Polkadot 的设计有很多相似之处，还有国内团队AckBlock的Forge，今天好好看了看Cosmos</p>
+<h2 id="cosmos-amp-tendermint"><a href="#cosmos-amp-tendermint" class="headerlink" title="cosmos &amp; tendermint"></a>cosmos &amp; tendermint</h2><p>Cosmos的人认为： 很多人（组织）会想拥有一条属于自己的链，通过 tendermint通用的区块链开发框架，快速定制开发自己的链。</p>
+<p>一条链包括3个部分的话：网络层，共识层，应用层。</p>
+<p>tendermint 包含两部分：</p>
+<ol>
+<li>tendermint core 把共识层和网络层封装在了一起，共识层是拜占庭共识算法+pos。</li>
+<li>ABCI协议，Application Blockchain Interface，  tendermint core 引擎和上面开发者自定义的应用层之间的接口。  </li>
+</ol>
+<p>Cosmos SDK 是实现ABCI协议，如 区块链中的一些通用模块标准化，这些通用模块覆盖了大部分应用层需要具备的功能，比如：staking（抵押机制）、slashing（惩罚机制）、IBC（跨链功能），账户accounts、治理、奖励&amp;手续费等。</p>
+<p><strong>跨链</strong> 有很多条链的时候，跨链问题就来了， comos 抽象出来一个 机制抽象 IBC协议，Inter-Blockchain Communication。IBC就像一座桥，让不同的链可以互相连通（支持简单的价值传递）。</p>
+<p>有了IBC这个跨链通信协议，我们如何构造一个互联互通的区块链网络？</p>
+<ol>
+<li>两两相连</li>
+<li>单连跨链验证</li>
+</ol>
+<p>cosmos采用另一种办法跨链。他们采用一种模块化的架构来建立整个区块链网络的连接，这个架构包括两个组成部分：一个叫hub，一个叫zone。</p>
+<p>后续进一步讲究</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://mp.weixin.qq.com/s/az2XnCJDdMi3LrukKY3ypQ" target="_blank" rel="noopener">Cosmos上线主网了，但是“为什么需要跨链”依然有待探寻</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tinyxiong.com/new-start-day1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -280,8 +615,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T14:20:28+08:00">
-                2019-03-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T14:20:28+08:00">
+                2019-03-10
               </time>
             
 
@@ -296,8 +631,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-14T15:08:09+08:00">
-                2019-03-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-21T23:21:34+08:00">
+                2019-03-21
               </time>
             
           </span>
@@ -354,9 +689,9 @@
       
         
           
-            <p>昨天我加入了一个每日阅读特训营，强迫自己每日阅读进行总结，其实每日阅读一直都有，不过总结做的少，这是一个go开发者组织的活动， 也强迫自己学习下go。</p>
+            <p>昨天我加入了一个每日阅读特训营，强迫自己每日阅读进行总结，其实每日阅读一直都有，不过总结做的少，这是一个go开发者组织的活动， 也强迫自己学习下Go。</p>
 <p>今日学习：</p>
-<p><img src="/images/15525472059858.jpg" alt="极客时间-陈浩"></p>
+<h2 id="关于学习"><a href="#关于学习" class="headerlink" title="关于学习"></a>关于学习</h2><p><img src="/images/15525472059858.jpg" alt="极客时间-陈浩"></p>
 <p>陈浩在ARTS 打卡读者群召集令，写到：</p>
 <blockquote>
 <p> 学习没有捷径、是逆人性的，需要长期付出实际行动和精力。<br>听别人讲、看别人的书，远不如自己思辨、践行、总结和归纳。</p>
@@ -1277,7 +1612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1288,7 +1623,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1299,7 +1634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1357,6 +1692,10 @@
                 
                   <li class="links-of-blogroll-item">
                     <a href="https://learnblockchain.cn" title="深入浅出区块链" target="_blank">深入浅出区块链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.forecho.com" title="forecho的独立博客" target="_blank">forecho的独立博客</a>
                   </li>
                 
               </ul>
