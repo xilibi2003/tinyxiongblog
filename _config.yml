@@ -3,15 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Tiny熊谈技术
+title: Tiny熊-记录与思考
 subtitle: 
-description: 关注领域：区块链，linux，移动开发，Mac
+description: 关注领域：个人成长、思考、总结、区块链，Linux，移动开发，Mac
 author: Tiny熊
 language: zh-Hans
 timezone: Asia/Shanghai
 # Set default keywords (Use a comma to separate)
-keywords: "linux使用技巧"
-
+keywords: "linux使用技巧,区块链,个人成长"
 
 social:
   GitHub: https://github.com/xilibi2003 || github
@@ -33,6 +32,7 @@ links_layout: block
 links:
   我的小专栏: https://xiaozhuanlan.com/linuxskill
   深入浅出区块链: https://learnblockchain.cn
+  forecho的独立博客: https://blog.forecho.com
   
 
 
