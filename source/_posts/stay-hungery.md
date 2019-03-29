@@ -3,7 +3,7 @@ title: 思考：一个人在情况下成长最快？
 date: 2019-03-23 23:53:00
 categories: 思考
 tags:
-    - 思考
+    - 成长
 author: Tiny熊
 ---
 

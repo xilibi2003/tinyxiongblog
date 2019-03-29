@@ -3,7 +3,8 @@ title: 学习跨链
 date: 2019-03-22 23:00:10
 categories: 学习
 tags:
-    - 学习
+    - 侧链
+    - 侧链
 author: Tiny熊
 ---
 
@@ -29,7 +30,7 @@ author: Tiny熊
 
 用一个例子来阐述如何使用哈希时间锁定进行跨链的原子资产交换，假设Alice和Bob有资产交换的需求，Alice想用1个BTC和Bob换20个ETH. 那么首先需要在两条链上设置哈希时间锁定合约，然后执行如下步骤：
 
-![](images/15532695517070.png)
+![](/images/15532695517070.png)
 
 1. Alice 随机构建一个字符串s，并计算出其哈希 h = hash(s)；
 2. Alice 将h发送给Bob的合约；
