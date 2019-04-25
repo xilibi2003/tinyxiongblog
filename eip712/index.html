@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Linux,命令," />
+  <meta name="keywords" content="EIP712," />
 
 
 
@@ -83,20 +83,20 @@
 
 
 
-<meta name="description" content="ls 是Linux 下最常用的命令之一，用于列出文件和目录。">
-<meta name="keywords" content="Linux,命令">
+<meta name="description" content="这个EIP 是为了提高链下消息签名对链上的可用性。因为节省gas以及减少链上交易的原因，采用链下消息签名的需求越来越多。 我们知道对数据签名后，它会变成一段无法阅读的字节字符串，而有时候，我们需要知道背后所代码数据的含义，下面这个图很好表达了这个对比：  图片来源于eip-712 讨论 为了签名结构化数据，EIP712 中加入了新的远程调用用法： eth_signTypedData， web3.j">
+<meta name="keywords" content="EIP712">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux常用命令系列 - ls命令">
-<meta property="og:url" content="http://tinyxiong.com/linux_ls/index.html">
+<meta property="og:title" content="理解 EIP712">
+<meta property="og:url" content="http://tinyxiong.com/eip712/index.html">
 <meta property="og:site_name" content="Tiny熊的博客">
-<meta property="og:description" content="ls 是Linux 下最常用的命令之一，用于列出文件和目录。">
+<meta property="og:description" content="这个EIP 是为了提高链下消息签名对链上的可用性。因为节省gas以及减少链上交易的原因，采用链下消息签名的需求越来越多。 我们知道对数据签名后，它会变成一段无法阅读的字节字符串，而有时候，我们需要知道背后所代码数据的含义，下面这个图很好表达了这个对比：  图片来源于eip-712 讨论 为了签名结构化数据，EIP712 中加入了新的远程调用用法： eth_signTypedData， web3.j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://tinyxiong.com/images/linux_ls.png">
-<meta property="og:updated_time" content="2017-12-14T14:55:33.000Z">
+<meta property="og:image" content="https://img.learnblockchain.cn/2019/15561615006261.jpg">
+<meta property="og:updated_time" content="2019-04-25T03:23:18.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux常用命令系列 - ls命令">
-<meta name="twitter:description" content="ls 是Linux 下最常用的命令之一，用于列出文件和目录。">
-<meta name="twitter:image" content="http://tinyxiong.com/images/linux_ls.png">
+<meta name="twitter:title" content="理解 EIP712">
+<meta name="twitter:description" content="这个EIP 是为了提高链下消息签名对链上的可用性。因为节省gas以及减少链上交易的原因，采用链下消息签名的需求越来越多。 我们知道对数据签名后，它会变成一段无法阅读的字节字符串，而有时候，我们需要知道背后所代码数据的含义，下面这个图很好表达了这个对比：  图片来源于eip-712 讨论 为了签名结构化数据，EIP712 中加入了新的远程调用用法： eth_signTypedData， web3.j">
+<meta name="twitter:image" content="https://img.learnblockchain.cn/2019/15561615006261.jpg">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://tinyxiong.com/linux_ls/"/>
+  <link rel="canonical" href="http://tinyxiong.com/eip712/"/>
 
 
 
 
 
-  <title>Linux常用命令系列 - ls命令 | Tiny熊的博客</title>
+  <title>理解 EIP712 | Tiny熊的博客</title>
   
 
 
@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tinyxiong.com/linux_ls/">
+    <link itemprop="mainEntityOfPage" href="http://tinyxiong.com/eip712/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tiny熊">
@@ -268,7 +268,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux常用命令系列 - ls命令</h2>
+          <h2 class="post-title" itemprop="name headline">理解 EIP712</h2>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T16:36:36+08:00">
-                2017-08-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-25T23:53:00+08:00">
+                2019-04-25
               </time>
             
 
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-14T22:55:33+08:00">
-                2017-12-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-25T11:23:18+08:00">
+                2019-04-25
               </time>
             
           </span>
@@ -315,19 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/命令/" itemprop="url" rel="index">
-                    <span itemprop="name">命令</span>
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
                   </a>
                 </span>
 
@@ -363,15 +352,12 @@
       
 
       
-        <p>ls 是Linux 下最常用的命令之一，用于列出文件和目录。</p>
-<a id="more"></a>
-<h2 id="常用用法"><a href="#常用用法" class="headerlink" title="常用用法"></a>常用用法</h2><p>常用参数  -l(l : list) ： 显示文件（夹）内容详情 每行是一个文件的详情<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l</span><br><span class="line">drwxr-xr-x  6 Emmett  staff  204  9  4 17:18 man</span><br><span class="line">-rw-r--r--  1 Emmett  staff    0 12  4 22:52 test_lastest</span><br><span class="line">lrwxr-xr-x  1 Emmett  staff   13 12  4 22:58 p_readme -&gt; ../readme.txt</span><br></pre></td></tr></table></figure></p>
-<p>每个文件的详情分别用7列来表示<br>第1列  第一个字母 表示文件类型  d 表示目录  - 表示文件 l 表示链接<br>剩下的9个字母表示文件权限， 以三个字母为一组（rwx），分别表示 拥有者 所有组 其他人的权限<br>第2列 表示多少链接指向这个文件<br>第3列  表示文件/文件夹的所有者<br>第4列 表示文件/文件夹的所有组<br>第5列 表示文件/文件夹大小，以字节为单位<br>第6列 表示文件最后的修改时间<br>第7列 表示文件名或目录名</p>
-<p>常用参数 -lh (h : human) 易于人类阅读的文件大小:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lh</span><br><span class="line">-rw-r--r--@ 1 Emmett  staff   960M 12  4 23:13 G718CH.zip</span><br></pre></td></tr></table></figure></p>
-<p>常用参数 -a (a: all) 显示所有文件（用于显示隐藏文件）<br>参数：-S (S : Size )以文件大小排序<br>参数： -t （t: time） 修改时间排序，新的文件在前<br>参数：-r (r: reverse) 反转顺序</p>
-<h2 id="组合用法"><a href="#组合用法" class="headerlink" title="组合用法"></a>组合用法</h2><p>想一想， 如何查看最大的5个文件？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -S | head -5</span><br></pre></td></tr></table></figure></p>
-<h2 id="用法截图"><a href="#用法截图" class="headerlink" title="用法截图"></a>用法截图</h2><p><img src="/images/linux_ls.png" alt=""></p>
-<p><a href="http://tinyxiong.com/linux_ls/">原始链接</a>:<a href="http://tinyxiong.com/linux_ls/">http://tinyxiong.com/linux_ls/</a><br>关于作者：Tiny熊：<a href="https://learnblockchain.cn" target="_blank" rel="noopener">深入浅出区块链</a>博主</p>
+        <p>这个EIP 是为了提高链下消息签名对链上的可用性。因为节省gas以及减少链上交易的原因，采用链下消息签名的需求越来越多。</p>
+<p>我们知道对数据签名后，它会变成一段无法阅读的字节字符串，而有时候，我们需要知道背后所代码数据的含义，下面这个图很好表达了这个对比：</p>
+<p><img src="https://img.learnblockchain.cn/2019/15561615006261.jpg" alt=""></p>
+<p>图片来源于<a href="https://ethereum-magicians.org/t/eip-712-eth-signtypeddata-as-a-standard-for-machine-verifiable-and-human-readable-typed-data-signing/397" target="_blank" rel="noopener">eip-712 讨论</a></p>
+<p>为了签名结构化数据，EIP712 中加入了新的远程调用用法： eth_signTypedData， web3.js 也有对应的实现：web3.eth.signTypedData。</p>
+<p>如何结构化数据可以参考<a href="https://eips.ethereum.org/EIPS/eip-712" target="_blank" rel="noopener">eip-712 标准</a>，这里也有一篇文章介绍：<a href="https://learnblockchain.cn/2019/04/24/token-EIP712/" target="_blank" rel="noopener">理解 EIP712 - 类型结构化数据 Hash 与签名</a></p>
 
       
     </div>
@@ -424,7 +410,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://tinyxiong.com/linux_ls/" title="Linux常用命令系列 - ls命令">http://tinyxiong.com/linux_ls/</a>
+    <a href="http://tinyxiong.com/eip712/" title="理解 EIP712">http://tinyxiong.com/eip712/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -439,9 +425,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/命令/" rel="tag"># 命令</a>
+            <a href="/tags/EIP712/" rel="tag"># EIP712</a>
           
         </div>
       
@@ -454,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/linux_common_cmds/" rel="next" title="Linux常用命令列表 - 速查手册">
-                <i class="fa fa-chevron-left"></i> Linux常用命令列表 - 速查手册
+              <a href="/seo/" rel="next" title="SEO 经验总结">
+                <i class="fa fa-chevron-left"></i> SEO 经验总结
               </a>
             
           </div>
@@ -463,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/linux_cat/" rel="prev" title="Linux常用命令系列 - echo命令">
-                Linux常用命令系列 - echo命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -518,17 +498,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -638,22 +609,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用用法"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5E38;&#x7528;&#x7528;&#x6CD5;" class="headerlink" title="&#x5E38;&#x7528;&#x7528;&#x6CD5;"></a>&#x5E38;&#x7528;&#x7528;&#x6CD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合用法"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x7EC4;&#x5408;&#x7528;&#x6CD5;" class="headerlink" title="&#x7EC4;&#x5408;&#x7528;&#x6CD5;"></a>&#x7EC4;&#x5408;&#x7528;&#x6CD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法截图"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x7528;&#x6CD5;&#x622A;&#x56FE;" class="headerlink" title="&#x7528;&#x6CD5;&#x622A;&#x56FE;"></a>&#x7528;&#x6CD5;&#x622A;&#x56FE;</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
