@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="RNVwJJw32eotPkPUqLM4rell2tXbic1eMfSTDaYi7sw" />
+
+
+
+  <meta name="msvalidate.01" content="914C9C1CBC7078C5E2AC612AD5C1CC6C" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="立即执行函数立即执行函数，即Immediately Invoked Function Expression (IIFE)，正如它的名字，就是创建函数的同时立即执行。它没有绑定任何事件，也无需等待任何异步操作： 1234(function() &amp;#123; // 代码 // ...&amp;#125;)(); function(){…}是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】10个JavaScript开发者必须知晓的概念">
+<meta property="og:url" content="http://tinyxiong.com/javascript-level/index.html">
+<meta property="og:site_name" content="Tiny熊的博客">
+<meta property="og:description" content="立即执行函数立即执行函数，即Immediately Invoked Function Expression (IIFE)，正如它的名字，就是创建函数的同时立即执行。它没有绑定任何事件，也无需等待任何异步操作： 1234(function() &amp;#123; // 代码 // ...&amp;#125;)(); function(){…}是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-04T15:26:51.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】10个JavaScript开发者必须知晓的概念">
+<meta name="twitter:description" content="立即执行函数立即执行函数，即Immediately Invoked Function Expression (IIFE)，正如它的名字，就是创建函数的同时立即执行。它没有绑定任何事件，也无需等待任何异步操作： 1234(function() &amp;#123; // 代码 // ...&amp;#125;)(); function(){…}是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tinyxiong.com/javascript-level/"/>
+
+
+
+
+
+  <title>【转】10个JavaScript开发者必须知晓的概念 | Tiny熊的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tiny熊的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录我的学习与思考</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-深入浅出区块链">
+          <a href="https://learnblockchain.cn" rel="section">
+            
+            深入浅出区块链
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tinyxiong.com/javascript-level/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tiny熊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tiny熊的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">【转】10个JavaScript开发者必须知晓的概念</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T23:53:00+08:00">
+                2019-05-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-04T23:26:51+08:00">
+                2019-05-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p><strong>立即执行函数</strong>，即Immediately Invoked Function Expression (IIFE)，正如它的名字，就是创建函数的同时立即执行。它没有绑定任何事件，也无需等待任何异步操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 代码</span></span><br><span class="line"> <span class="comment">// ...</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p><strong>function(){…}</strong>是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号调用了这个函数。<strong>立即执行函数</strong>也可以理解为立即调用一个匿名函数。<strong>立即执行函数</strong>最常见的应用场景就是：将var变量的作用域限制于你们函数内，这样可以避免命名冲突。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>对于闭包(closure)，当外部函数返回之后，内部函数依然可以访问外部函数的变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">var</span> N = <span class="number">0</span>; <span class="comment">// N是f1函数的局部变量</span></span><br><span class="line">  </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) // <span class="title">f2</span>是<span class="title">f1</span>函数的内部函数，是闭包</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line"> N += <span class="number">1</span>; <span class="comment">// 内部函数f2中使用了外部函数f1中的变量N</span></span><br><span class="line"> <span class="built_in">console</span>.log(N);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = f1();</span><br><span class="line"></span><br><span class="line">result(); <span class="comment">// 输出1</span></span><br><span class="line">result(); <span class="comment">// 输出2</span></span><br><span class="line">result(); <span class="comment">// 输出3</span></span><br></pre></td></tr></table></figure>
+<p>代码中，外部函数<strong>f1</strong>只执行了一次，变量<strong>N</strong>设为<strong>0</strong>，并将内部函数<strong>f2</strong>赋值给了变量<strong>result</strong>。由于外部函数<strong>f1</strong>已经执行完毕，其内部变量<strong>N</strong>应该在内存中被清除，然而事实并不是这样：我们每次调用<strong>result</strong>的时候，发现变量<strong>N</strong>一直在内存中，并且在累加。为什么呢？这就是闭包的神奇之处了！</p>
+<h2 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a>使用闭包定义私有变量</h2><p>通常，JavaScript开发者使用下划线作为私有变量的前缀。但是实际上，这些变量依然可以被访问和修改，并非真正的私有变量。这时，使用闭包可以定义真正的私有变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Product</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> name;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line"> name = value;</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> name;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Product();</span><br><span class="line">p.setName(<span class="string">"Fundebug"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p.name); <span class="comment">// 输出undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(p.getName()); <span class="comment">// 输出Fundebug</span></span><br></pre></td></tr></table></figure>
+<p>代码中，对象<strong>p</strong>的的<strong>name</strong>属性为私有属性，使用<strong>p.name</strong>不能直接访问。</p>
+<h2 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h2><p>每个JavaScript构造函数都有一个<strong>prototype</strong>属性，用于设置所有实例对象需要共享的属性和方法。<strong>prototype</strong>属性不能列举。JavaScript仅支持通过<strong>prototype</strong>属性进行继承属性和方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">x, y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>._length = x;</span><br><span class="line"> <span class="keyword">this</span>._breadth = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rectangle.prototype.getDimensions = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line"> length: <span class="keyword">this</span>._length,</span><br><span class="line"> breadth: <span class="keyword">this</span>._breadth</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> Rectangle(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> Rectangle(<span class="number">4</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x.getDimensions()); <span class="comment">// &#123; length: 3, breadth: 4 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(y.getDimensions()); <span class="comment">// &#123; length: 4, breadth: 3 &#125;</span></span><br></pre></td></tr></table></figure>
+<p>代码中，<strong>x</strong>和<strong>y</strong>都是构造函数<strong>Rectangle</strong>创建的对象实例，它们通过prototype继承了getDimensions方法。</p>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>JavaScript并非模块化编程语言，至少ES6落地之前都不是。然而对于一个复杂的Web应用，模块化编程是一个最基本的要求。这时，可以使用<strong>立即执行函数</strong>来实现模块化，正如很多JS库比如<a href="https://github.com/jquery/jquery" target="_blank" rel="noopener">jQuery</a>以及我们<a href="https://www.fundebug.com/" target="_blank" rel="noopener">Fundebug</a>都是这样实现的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> N = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"The result is: "</span> + x);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> x = a + N;</span><br><span class="line"> print(x);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line"> description: <span class="string">"This is description"</span>,</span><br><span class="line"> add: add</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.description); <span class="comment">// 输出"this is description" </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.add(<span class="number">5</span>); <span class="comment">// 输出“The result is: 10”</span></span><br></pre></td></tr></table></figure>
+<p>所谓模块化，就是根据需要控制模块内属性与方法的可访问性，即私有或者公开。在代码中，module为一个独立的模块，<strong>N</strong>为其私有属性，<strong>print</strong>为其私有方法，<strong>decription</strong>为其公有属性，<strong>add</strong>为其共有方法。</p>
+<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><p>JavaScript会将所有变量和函数声明移动到它的作用域的最前面，这就是所谓的<strong>变量提升(Hoisting)</strong>。也就是说，无论你在什么地方声明变量和函数，解释器都会将它们移动到作用域的最前面。因此我们可以先使用变量和函数，而后声明它们。</p>
+<p>但是，仅仅是变量声明被提升了，而变量赋值不会被提升。如果你不明白这一点，有时则会出错：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(y);  <span class="comment">// 输出undefined</span></span><br><span class="line"></span><br><span class="line">y = <span class="number">2</span>; <span class="comment">// 初始化y</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码等价于下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> y;  <span class="comment">// 声明y</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(y);  <span class="comment">// 输出undefined</span></span><br><span class="line"></span><br><span class="line">y = <span class="number">2</span>; <span class="comment">// 初始化y</span></span><br></pre></td></tr></table></figure>
+<p>为了避免BUG，开发者应该在每个作用域开始时声明变量和函数。</p>
+<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>柯里化，即<strong>Currying</strong>，可以是函数变得更加灵活。我们可以一次性传入多个参数调用它；也可以只传入一部分参数来调用它，让它返回一个函数去处理剩下的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> x + y;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>)(<span class="number">1</span>)); <span class="comment">// 输出2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add1 = add(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(add1(<span class="number">1</span>)); <span class="comment">// 输出2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add10 = add(<span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(add10(<span class="number">1</span>)); <span class="comment">// 输出11</span></span><br></pre></td></tr></table></figure>
+<p>代码中，我们可以一次性传入2个1作为参数<strong>add(1)(1)</strong>，也可以传入1个参数之后获取<strong>add1</strong>与<strong>add10</strong>函数，这样使用起来非常灵活。</p>
+<h2 id="apply-call与bind方法"><a href="#apply-call与bind方法" class="headerlink" title="apply, call与bind方法"></a>apply, call与bind方法</h2><p>JavaScript开发者有必要理解<strong>apply</strong>、<strong>call</strong>与<strong>bind</strong>方法的不同点。它们的共同点是第一个参数都是<strong>this</strong>，即函数运行时依赖的上下文。</p>
+<p>三者之中，<strong>call</strong>方法是最简单的，它等价于指定<strong>this</strong>值调用函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line"> name: <span class="string">"Rahul Mhatre"</span>,</span><br><span class="line"> whatIsYourName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">user.whatIsYourName(); <span class="comment">// 输出"Rahul Mhatre",</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user2 = &#123;</span><br><span class="line"> name: <span class="string">"Neha Sampat"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">user.whatIsYourName.call(user2); <span class="comment">// 输出"Neha Sampat"</span></span><br></pre></td></tr></table></figure>
+<p><strong>apply</strong>方法与<strong>call</strong>方法类似。两者唯一的不同点在于，<strong>apply</strong>方法使用数组指定参数，而<strong>call</strong>方法每个参数单独需要指定：</p>
+<ul>
+<li><strong>apply(thisArg, [argsArray])</strong></li>
+<li><strong>call(thisArg, arg1, arg2, …)</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line"> greet: <span class="string">"Hello!"</span>,</span><br><span class="line"> greetUser: <span class="function"><span class="keyword">function</span>(<span class="params">userName</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.greet + <span class="string">" "</span> + userName);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greet1 = &#123;</span><br><span class="line"> greet: <span class="string">"Hola"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">user.greetUser.call(greet1, <span class="string">"Rahul"</span>); <span class="comment">// 输出"Hola Rahul"</span></span><br><span class="line">user.greetUser.apply(greet1, [<span class="string">"Rahul"</span>]); <span class="comment">// 输出"Hola Rahul"</span></span><br></pre></td></tr></table></figure>
+<p>使用<strong>bind</strong>方法，可以为函数绑定<strong>this</strong>值，然后作为一个新的函数返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line"> greet: <span class="string">"Hello!"</span>,</span><br><span class="line"> greetUser: <span class="function"><span class="keyword">function</span>(<span class="params">userName</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.greet + <span class="string">" "</span> + userName);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greetHola = user.greetUser.bind(&#123;<span class="attr">greet</span>: <span class="string">"Hola"</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> greetBonjour = user.greetUser.bind(&#123;<span class="attr">greet</span>: <span class="string">"Bonjour"</span>&#125;);</span><br><span class="line"></span><br><span class="line">greetHola(<span class="string">"Rahul"</span>) <span class="comment">// 输出"Hola Rahul"</span></span><br><span class="line">greetBonjour(<span class="string">"Rahul"</span>) <span class="comment">// 输出"Bonjour Rahul"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Memoization"><a href="#Memoization" class="headerlink" title="Memoization"></a>Memoization</h2><p><strong>Memoization</strong>用于优化比较耗时的计算，通过将计算结果缓存到内存中，这样对于同样的输入值，下次只需要中内存中读取结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoizeFunction</span>(<span class="params">func</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">var</span> cache = &#123;&#125;;</span><br><span class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> key = <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line"> <span class="keyword">if</span> (cache[key])</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="keyword">return</span> cache[key];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> &#123;</span><br><span class="line"> <span class="keyword">var</span> val = func.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line"> cache[key] = val;</span><br><span class="line"> <span class="keyword">return</span> val;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fibonacci = memoizeFunction(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> (n === <span class="number">0</span> || n === <span class="number">1</span>) ? n : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">100</span>)); <span class="comment">// 输出354224848179262000000</span></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">100</span>)); <span class="comment">// 输出354224848179262000000</span></span><br></pre></td></tr></table></figure>
+<p>代码中，第2次计算<strong>fibonacci(100)</strong>则只需要在内存中直接读取结果。</p>
+<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>所谓<strong>函数重载(method overloading)</strong>，就是函数名称一样，但是输入输出不一样。或者说，允许某个函数有各种不同输入，根据不同的输入，返回不同的结果。凭直觉，<strong>函数重载</strong>可以通过<strong>if…else</strong>或者<strong>switch</strong>实现，这就不去管它了。jQuery之父John Resig提出了一个非常巧(bian)妙(tai)的方法，利用了闭包。</p>
+<p>从效果上来说，<strong>people</strong>对象的<strong>find</strong>方法允许3种不同的输入: 0个参数时，返回所有人名；1个参数时，根据firstName查找人名并返回；2个参数时，根据完整的名称查找人名并返回。</p>
+<p>难点在于，<strong>people.find</strong>只能绑定一个函数，那它为何可以处理3种不同的输入呢？它不可能同时绑定3个函数<strong>find0</strong>,<strong>find1</strong>与<strong>find2</strong>啊！这里的关键在于<strong>old</strong>属性。</p>
+<p>由<strong>addMethod</strong>函数的调用顺序可知，<strong>people.find</strong>最终绑定的是<strong>find2</strong>函数。然而，在绑定<strong>find2</strong>时，<strong>old</strong>为<strong>find1</strong>；同理，绑定<strong>find1</strong>时，<strong>old</strong>为<strong>find0</strong>。3个函数<strong>find0</strong>,<strong>find1</strong>与<strong>find2</strong>就这样通过闭包链接起来了。</p>
+<p>根据<strong>addMethod</strong>的逻辑，当<strong>f.length</strong>与<strong>arguments.length</strong>不匹配时，就会去调用<strong>old</strong>，直到匹配为止。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span>(<span class="params">object, name, f</span>)</span></span><br><span class="line"><span class="function"></span>&#123;　　</span><br><span class="line"> <span class="keyword">var</span> old = object[name];</span><br><span class="line"> object[name] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line"> <span class="comment">// f.length为函数定义时的参数个数</span></span><br><span class="line"> <span class="comment">// arguments.length为函数调用时的参数个数　　　　</span></span><br><span class="line"> <span class="keyword">if</span> (f.length === <span class="built_in">arguments</span>.length)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="keyword">return</span> f.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> old === <span class="string">"function"</span>)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="keyword">return</span> old.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不传参数时，返回所有name</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find0</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;　　</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">this</span>.names;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 传一个参数时，返回firstName匹配的name</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find1</span>(<span class="params">firstName</span>)</span></span><br><span class="line"><span class="function"></span>&#123;　　</span><br><span class="line"> <span class="keyword">var</span> result = [];</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i <span class="keyword">this</span>.names.length; i++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">this</span>.names[i].indexOf(firstName) === <span class="number">0</span>)</span><br><span class="line"> &#123;</span><br><span class="line"> result.push(<span class="keyword">this</span>.names[i]);</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 传两个参数时，返回firstName和lastName都匹配的name</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find2</span>(<span class="params">firstName, lastName</span>)</span></span><br><span class="line"><span class="function"></span>&#123;　</span><br><span class="line"> <span class="keyword">var</span> result = [];</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i <span class="keyword">this</span>.names.length; i++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">this</span>.names[i] === (firstName + <span class="string">" "</span> + lastName))</span><br><span class="line"> &#123;</span><br><span class="line"> result.push(<span class="keyword">this</span>.names[i]);</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> people = &#123;　　</span><br><span class="line"> names: [<span class="string">"Dean Edwards"</span>, <span class="string">"Alex Russell"</span>, <span class="string">"Dean Tom"</span>]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">addMethod(people, <span class="string">"find"</span>, find0);</span><br><span class="line">addMethod(people, <span class="string">"find"</span>, find1);</span><br><span class="line">addMethod(people, <span class="string">"find"</span>, find2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(people.find()); <span class="comment">// 输出["Dean Edwards", "Alex Russell", "Dean Tom"]</span></span><br><span class="line"><span class="built_in">console</span>.log(people.find(<span class="string">"Dean"</span>)); <span class="comment">// 输出["Dean Edwards", "Dean Tom"]</span></span><br><span class="line"><span class="built_in">console</span>.log(people.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>)); <span class="comment">// 输出["Dean Edwards"]</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">闭包 - MDN</a></li>
+<li><a href="http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201512282961.html" target="_blank" rel="noopener">JavaScript闭包-块级作用域和私有变量</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="noopener">Javascript继承机制的设计思想 - 阮一峰</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Hoisting" target="_blank" rel="noopener">变量提升 - MDN</a></li>
+<li><a href="https://www.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details" target="_blank" rel="noopener">JS函数式编程指南</a></li>
+<li><a href="http://www.cnblogs.com/yugege/p/5539020.html" target="_blank" rel="noopener">浅谈JavaScript函数重载</a></li>
+</ul>
+<p>本文链接地址：<a href="https://blog.fundebug.com/2017/07/17/10-javascript-difficulties/" target="_blank" rel="noopener">https://blog.fundebug.com/2017/07/17/10-javascript-difficulties/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/zsxq.jpg" alt="Tiny熊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注星球，收获满满</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/qr_pay.jpg" alt="Tiny熊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Fundebug
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://tinyxiong.com/javascript-level/" title="【转】10个JavaScript开发者必须知晓的概念">http://tinyxiong.com/javascript-level/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/eip712/" rel="next" title="理解 EIP712">
+                <i class="fa fa-chevron-left"></i> 理解 EIP712
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Tiny熊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/xilibi2003" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/xilibi2003" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/xiong-li-bing/activities" target="_blank" title="ZhiHu">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ZhiHu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:xilibi2003@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xiaozhuanlan.com/linuxskill" title="我的小专栏" target="_blank">我的小专栏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://learnblockchain.cn" title="深入浅出区块链" target="_blank">深入浅出区块链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.forecho.com" title="forecho的独立博客" target="_blank">forecho的独立博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;" class="headerlink" title="&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;"></a>&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x95ED;&#x5305;" class="headerlink" title="&#x95ED;&#x5305;"></a>&#x95ED;&#x5305;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用闭包定义私有变量"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5B9A;&#x4E49;&#x79C1;&#x6709;&#x53D8;&#x91CF;" class="headerlink" title="&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5B9A;&#x4E49;&#x79C1;&#x6709;&#x53D8;&#x91CF;"></a>&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5B9A;&#x4E49;&#x79C1;&#x6709;&#x53D8;&#x91CF;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prototype"><span class="nav-number">4.</span> <span class="nav-text"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x6A21;&#x5757;&#x5316;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;"></a>&#x6A21;&#x5757;&#x5316;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量提升"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x53D8;&#x91CF;&#x63D0;&#x5347;" class="headerlink" title="&#x53D8;&#x91CF;&#x63D0;&#x5347;"></a>&#x53D8;&#x91CF;&#x63D0;&#x5347;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#柯里化"><span class="nav-number">7.</span> <span class="nav-text"><a href="#&#x67EF;&#x91CC;&#x5316;" class="headerlink" title="&#x67EF;&#x91CC;&#x5316;"></a>&#x67EF;&#x91CC;&#x5316;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-call与bind方法"><span class="nav-number">8.</span> <span class="nav-text"><a href="#apply-call&#x4E0E;bind&#x65B9;&#x6CD5;" class="headerlink" title="apply, call&#x4E0E;bind&#x65B9;&#x6CD5;"></a>apply, call&#x4E0E;bind&#x65B9;&#x6CD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memoization"><span class="nav-number">9.</span> <span class="nav-text"><a href="#Memoization" class="headerlink" title="Memoization"></a>Memoization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数重载"><span class="nav-number">10.</span> <span class="nav-text"><a href="#&#x51FD;&#x6570;&#x91CD;&#x8F7D;" class="headerlink" title="&#x51FD;&#x6570;&#x91CD;&#x8F7D;"></a>&#x51FD;&#x6570;&#x91CD;&#x8F7D;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">11.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tiny熊</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1271309313&web_id=1271309313" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
